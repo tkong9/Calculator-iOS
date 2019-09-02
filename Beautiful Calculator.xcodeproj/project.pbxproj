@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		CD66D16A231751380065A731 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D169231751380065A731 /* AppDelegate.swift */; };
-		CD66D16C231751380065A731 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D16B231751380065A731 /* ViewController.swift */; };
+		CD66D16C231751380065A731 /* CalculatorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D16B231751380065A731 /* CalculatorVC.swift */; };
 		CD66D16F231751380065A731 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD66D16D231751380065A731 /* Main.storyboard */; };
 		CD66D1712317513A0065A731 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD66D1702317513A0065A731 /* Assets.xcassets */; };
 		CD66D1742317513A0065A731 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD66D1722317513A0065A731 /* LaunchScreen.storyboard */; };
+		CD66D17E231772880065A731 /* calculatorLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D17D231772880065A731 /* calculatorLogic.swift */; };
+		CD66D183231A4FEA0065A731 /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D182231A4FEA0065A731 /* HistoryCell.swift */; };
+		CD66D185231AD4080065A731 /* HistoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD66D184231AD4080065A731 /* HistoryTableVC.swift */; };
+		EE710195A4F305CB64C6E9E3 /* Pods_Beautiful_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 239EE6CFF597719A5CBE7CD5 /* Pods_Beautiful_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		239EE6CFF597719A5CBE7CD5 /* Pods_Beautiful_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Beautiful_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		748F5C6524AA440AF6AB0723 /* Pods-Beautiful Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beautiful Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Beautiful Calculator/Pods-Beautiful Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		CD66D166231751380065A731 /* Beautiful Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beautiful Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD66D169231751380065A731 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD66D16B231751380065A731 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CD66D16B231751380065A731 /* CalculatorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorVC.swift; sourceTree = "<group>"; };
 		CD66D16E231751380065A731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD66D1702317513A0065A731 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD66D1732317513A0065A731 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD66D1752317513A0065A731 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD66D17D231772880065A731 /* calculatorLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calculatorLogic.swift; sourceTree = "<group>"; };
+		CD66D182231A4FEA0065A731 /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
+		CD66D184231AD4080065A731 /* HistoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableVC.swift; sourceTree = "<group>"; };
+		CFD295BE0ADCC6D5461066EF /* Pods-Beautiful Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Beautiful Calculator.release.xcconfig"; path = "Target Support Files/Pods-Beautiful Calculator/Pods-Beautiful Calculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE710195A4F305CB64C6E9E3 /* Pods_Beautiful_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06A7B0EC0F70633FCA14AB04 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				748F5C6524AA440AF6AB0723 /* Pods-Beautiful Calculator.debug.xcconfig */,
+				CFD295BE0ADCC6D5461066EF /* Pods-Beautiful Calculator.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		98239F67754C23CDFC42D798 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				239EE6CFF597719A5CBE7CD5 /* Pods_Beautiful_Calculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CD66D15D231751380065A731 = {
 			isa = PBXGroup;
 			children = (
 				CD66D168231751380065A731 /* Beautiful Calculator */,
 				CD66D167231751380065A731 /* Products */,
+				06A7B0EC0F70633FCA14AB04 /* Pods */,
+				98239F67754C23CDFC42D798 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +86,40 @@
 			isa = PBXGroup;
 			children = (
 				CD66D169231751380065A731 /* AppDelegate.swift */,
-				CD66D16B231751380065A731 /* ViewController.swift */,
-				CD66D16D231751380065A731 /* Main.storyboard */,
+				CD66D17F231772900065A731 /* Model */,
+				CD66D17C231770100065A731 /* Controller */,
+				CD66D17B231770010065A731 /* View */,
 				CD66D1702317513A0065A731 /* Assets.xcassets */,
 				CD66D1722317513A0065A731 /* LaunchScreen.storyboard */,
 				CD66D1752317513A0065A731 /* Info.plist */,
 			);
 			path = "Beautiful Calculator";
+			sourceTree = "<group>";
+		};
+		CD66D17B231770010065A731 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD66D16D231751380065A731 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CD66D17C231770100065A731 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CD66D16B231751380065A731 /* CalculatorVC.swift */,
+				CD66D184231AD4080065A731 /* HistoryTableVC.swift */,
+				CD66D182231A4FEA0065A731 /* HistoryCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CD66D17F231772900065A731 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CD66D17D231772880065A731 /* calculatorLogic.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CD66D1782317513A0065A731 /* Build configuration list for PBXNativeTarget "Beautiful Calculator" */;
 			buildPhases = (
+				ABEFEBE15D7331F63D116E1A /* [CP] Check Pods Manifest.lock */,
 				CD66D162231751380065A731 /* Sources */,
 				CD66D163231751380065A731 /* Frameworks */,
 				CD66D164231751380065A731 /* Resources */,
+				84316E6F566D0A0D3672567F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +190,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		84316E6F566D0A0D3672567F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beautiful Calculator/Pods-Beautiful Calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Beautiful Calculator/Pods-Beautiful Calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Beautiful Calculator/Pods-Beautiful Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ABEFEBE15D7331F63D116E1A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Beautiful Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD66D162231751380065A731 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD66D16C231751380065A731 /* ViewController.swift in Sources */,
+				CD66D16C231751380065A731 /* CalculatorVC.swift in Sources */,
 				CD66D16A231751380065A731 /* AppDelegate.swift in Sources */,
+				CD66D17E231772880065A731 /* calculatorLogic.swift in Sources */,
+				CD66D183231A4FEA0065A731 /* HistoryCell.swift in Sources */,
+				CD66D185231AD4080065A731 /* HistoryTableVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +385,7 @@
 		};
 		CD66D1792317513A0065A731 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 748F5C6524AA440AF6AB0723 /* Pods-Beautiful Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +403,7 @@
 		};
 		CD66D17A2317513A0065A731 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFD295BE0ADCC6D5461066EF /* Pods-Beautiful Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
