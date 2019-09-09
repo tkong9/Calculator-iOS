@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class HistoryCell: UITableViewCell {
+class HistoryCell: SwipeTableViewCell {
     
-    @IBOutlet weak var calculation: UILabel!
+    @IBOutlet weak var calculationLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,10 +22,6 @@ class HistoryCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    func setCalculation(_ equation: String) {
-        calculation.text = equation
     }
 
 }

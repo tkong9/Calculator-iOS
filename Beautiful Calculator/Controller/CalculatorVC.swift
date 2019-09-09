@@ -8,8 +8,11 @@
 
 import UIKit
 import RealmSwift
+import SwipeCellKit
 
 class CalculatorVC: UIViewController {
+    
+    let realm = try! Realm()
     
     @IBOutlet weak var displayLabel: UILabel!
     
@@ -33,7 +36,13 @@ class CalculatorVC: UIViewController {
     
     var dotDisabled: Bool = false
     
-    private let calculator = calculatorLogic()
+    var calculationHistories: Results<CalculationHistory>?
+    
+    var calculator = CalculatorLogic()
+    
+    let imageArray: [UIImage] = [UIImage(named: "green")!, UIImage(named: "blue")!, UIImage(named: "pink")!]
+    
+    var keepSameImage: Results<BackgroundImageNumber>?
     
     override func viewDidLoad() {
         
@@ -44,11 +53,25 @@ class CalculatorVC: UIViewController {
         dotDisabled = false
         
         backgroundImage.image = imageArray[0]
+        
+        loadHistory()
+        
     }
     
-    let imageArray: [UIImage] = [UIImage(named: "green")!, UIImage(named: "blue")!, UIImage(named: "pink")!]
-    
-    var imageNumber: Int = 0
+    override func viewWillAppear(_ animated: Bool) {
+        if keepSameImage?.count == 0 {
+            let newNumber = BackgroundImageNumber()
+            do {
+                try realm.write {
+                    realm.add(newNumber)
+                }
+            } catch {
+                print("Error saving image number, \(error)")
+            }
+        } else {
+            backgroundImage.image = imageArray[keepSameImage?[0].imageNumber ?? 0]
+        }
+    }
     
     @IBAction func numberPressed(_ sender: UIButton) {
         if equalsButtonJustPressed {
@@ -113,7 +136,6 @@ class CalculatorVC: UIViewController {
         }
         dotDisabled = false
         isNumberTurn = true
-//        displayLabel.text?.append(".0")
         displayLabel.text! += " " + sender.currentTitle! + " "
             
         case "-":
@@ -122,16 +144,19 @@ class CalculatorVC: UIViewController {
             displayLabel.text! += " " + sender.currentTitle! + " "
         
         case "=":
-            print("= button pressed.")
             if displayLabel.text! == "" {
                 return
             }
             dotDisabled = false
             equalsButtonJustPressed = true
-            displayLabel.text = calculator.calculate(displayLabel.text!)
+            let result = calculator.calculate(displayLabel.text!)
+            let newCalculation = CalculationHistory()
+            newCalculation.calculation = "\(displayLabel.text!)" + "\n" + "= " + "\(result)"
+            save(calculation: newCalculation)
+            displayLabel.text = result
             
         default:
-            print("Unexpected error occured.")
+            print("Unexpected error has occured.")
         }
     }
     
@@ -165,17 +190,40 @@ class CalculatorVC: UIViewController {
             
             let destVC = segue.destination as! HistoryTableVC
             
-            destVC.calculationHistory = calculator.history
-            
+            destVC.calculationHistories = calculationHistories
+
             destVC.imageArray = self.imageArray
             
-            destVC.imageNumber = self.imageNumber
+            destVC.imageNumber = keepSameImage?[0].imageNumber ?? 0
         }
     }
     
     @IBAction func chageColorPressed(_ sender: UIBarButtonItem) {
-        imageNumber += 1
-        imageNumber %= 3
-        backgroundImage.image = imageArray[imageNumber]
+        
+        do {
+            try realm.write {
+                keepSameImage?[0].imageNumber += 1
+                keepSameImage?[0].imageNumber %= 3
+            }
+        } catch {
+            print("error changing image number, \(error)")
+        }
+
+        backgroundImage.image = imageArray[keepSameImage?[0].imageNumber ?? 0]
+    }
+    
+    func save(calculation: CalculationHistory) {
+        do {
+            try realm.write {
+                realm.add(calculation)
+            }
+        } catch {
+            print("Error saving new calculation.")
+        }
+    }
+    
+    func loadHistory() {
+        calculationHistories = realm.objects(CalculationHistory.self)
+        keepSameImage = realm.objects(BackgroundImageNumber.self)
     }
 }
