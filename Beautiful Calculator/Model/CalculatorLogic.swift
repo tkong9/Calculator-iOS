@@ -27,7 +27,7 @@ class CalculatorLogic {
         let NSEquation = toNSExpression(stringEquation)
 
         let result = NSEquation.expressionValue(with: nil, context: nil)
-
+        
         if let result = result {
             return "\(result)"
         } else {
